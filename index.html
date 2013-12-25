@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JsDebuggr</title>
+	<meta charset="utf-8">
+
+	<style>
+		html, body { width: 100%; height: 100%; overflow: hidden; }
+		.doge { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;}
+		.wow { position: absolute; font-family: "Comic Sans MS"; z-index: 10;}
+	</style>
+</head>
+<body>
+
+	<img class="doge" src="Shibe_Inu_Doge_meme.jpg"></div>
+
+<script>
+
+	var txt = "wow. many breakpoint. such useful. wow. much clean. very sublime. wow".split(". "),
+		w = document.body.offsetWidth,
+		h = document.body.offsetHeight;
+
+	for(var i in txt){
+		(function(){
+			var el = document.createElement("div");
+			el.className = "wow";
+			el.style.color = randomColor();
+			el.style.fontSize = Math.random() + 4 + "em";
+			el.style.top = Math.random() * h - 200 +"px";
+			el.style.left = Math.random() * w - 200 +"px";
+			el.innerHTML = txt[i];
+			setTimeout(function(){
+				document.body.appendChild( el );
+			}, 1000*i);
+		})();
+	}
+
+	function randomColor(){
+		return "#"+Math.floor(Math.random()*16777215).toString(16);
+	}
+
+</script>
+</body>
+</html>
